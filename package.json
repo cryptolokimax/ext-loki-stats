@@ -1,17 +1,17 @@
 {
-  "name": "@mozaik/ext-json",
-  "version": "0.4.0",
-  "description": "A Mozaïk extension providing generic widgets to be used to display remotely fetched json data",
+  "name": "ext-loki-stats",
+  "version": "",
+  "description": "A Mozaïk extension widgets for Loki statistics",
   "repository": {
     "type": "git",
-    "url": "git://github.com/plouc/mozaik-ext-json"
+    "url": ""
   },
   "license": "MIT",
   "author": {
-    "name": "Raphaël Benitte",
-    "url": "https://github.com/plouc"
+    "name": "",
+    "url": ""
   },
-  "homepage": "https://github.com/plouc/mozaik-ext-json",
+  "homepage": "https://loki.network",
   "main": "./lib/components/index.js",
   "module": "es/components/index.js",
   "jsnext:main": "es/components/index.js",
@@ -29,6 +29,7 @@
     "npm": ">=3.0.0"
   },
   "dependencies": {
+    "@nivo/line": "^0.51.0",
     "chalk": "^2.0.1",
     "convict": "^4.0.0",
     "lodash": "^4.17.4",
@@ -36,17 +37,17 @@
     "prop-types": "^15.5.10"
   },
   "devDependencies": {
-    "@commitlint/cli": "^7.0.0",
+    "@commitlint/cli": "^7.2.1",
     "@commitlint/config-conventional": "^7.0.1",
     "@mozaik/babel-preset": "^1.0.0-alpha.6",
-    "@mozaik/ui": "^2.0.0-rc.0",
+    "@mozaik/ui": "^2.0.0-rc.2",
     "babel-cli": "^6.24.1",
     "babel-eslint": "^7.2.3",
     "babel-jest": "^23.4.2",
     "coveralls": "^2.11.15",
     "cross-env": "^5.0.1",
     "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-adapter-react-16": "^1.6.0",
     "eslint": "^4.2.0",
     "eslint-plugin-react": "^7.1.0",
     "husky": "^0.14.3",
@@ -54,9 +55,9 @@
     "lint-staged": "^7.2.0",
     "nock": "^9.0.14",
     "prettier": "^1.5.3",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0",
-    "react-test-renderer": "^16.4.0",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
+    "react-test-renderer": "^16.6.0",
     "styled-components": "^2.1.1"
   },
   "peerDependencies": {
@@ -77,9 +78,7 @@
     "fmt": "prettier --color --write \"{src,test}/**/*.js\" 'client.js'",
     "fmt:check": "prettier --list-different \"{src,test}/**/*.js\" 'client.js'",
     "prepublishOnly": "npm run lint && npm test && npm run build",
-    "version": "echo ${npm_package_version}",
-    "precommit": "lint-staged",
-    "commitmsg": "commitlint -E GIT_PARAMS"
+    "version": "echo ${npm_package_version}"
   },
   "jest": {
     "testURL": "http://localhost/"

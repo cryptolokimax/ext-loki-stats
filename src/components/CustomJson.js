@@ -28,16 +28,46 @@ export default class CustomJson extends Component {
     render() {
         const { title, url, apiData, apiError, template } = this.props
 
+        const innerCss = `
+                
+                .json-w-wrapper {
+                    width: 100%;
+                    height: 100%;
+                    padding-top: 0px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .json-w-center {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+                .json-w-big-text {
+                    font-size: 9vmin;
+                    height: 7vmin;
+                }
+                .json-w-right-text {
+                    font-size: 2vmin;
+                    padding-left: 1vmin;
+                }
+                .json-w-bottom-text {
+                    font-size: 2vmin;
+                    position: absolute;
+                    bottom: 1vmin;
+                }
+         `;
         let body = <WidgetLoader />
         if (apiData && !apiError) {
             const compiled = _.template(template)
-            body = <div dangerouslySetInnerHTML={createMarkup(compiled, apiData)} />
+            body = <div style={{ width: '100%', height: '100%' }} dangerouslySetInnerHTML={createMarkup(compiled, apiData)} />
         }
 
         return (
             <Widget>
                 <WidgetHeader title={title || url} />
                 <WidgetBody>
+                    <style dangerouslySetInnerHTML={{__html: innerCss }} />
                     <TrapApiError error={apiError}>{body}</TrapApiError>
                 </WidgetBody>
             </Widget>
