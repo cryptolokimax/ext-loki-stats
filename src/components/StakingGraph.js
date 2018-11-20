@@ -34,12 +34,13 @@ export default class StakingGraph extends Component {
         const periodToCalcDays = 365*3;
         const periodToCalcBlocks = periodToCalcDays * blocksPerDay;
         const startHeight = 101250;
-
+        const stepsToSkipOnGraphPerBlock = 100; // the bigger the less accurate, the smaller the most cpu
+        
         const numberWithThousands = (x) => {
             return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         }
 
-        const graphData = _.range(startHeight, startHeight + periodToCalcBlocks, blocksPerDay * 10).map((curHeight) => {
+        const graphData = _.range(startHeight, startHeight + periodToCalcBlocks, blocksPerDay * stepsToSkipOnGraphPerBlock).map((curHeight) => {
             // const curHeight = startHeight + ri;
             const curBlockReward = calcRequiredForStake(curHeight);
             return {
@@ -53,7 +54,7 @@ export default class StakingGraph extends Component {
             <ResponsiveLine
                 data={[
                     {
-                    "id": "japan",
+                    "id": "requirement",
                     "color": "hsl(176, 70%, 50%)",
                     "data": graphData
                     }
@@ -79,6 +80,7 @@ export default class StakingGraph extends Component {
                 minY="auto"
                 maxY="auto"
                 stacked={true}
+                curve="natural"
                 axisTop={null}
                 axisRight={null}
                 axisBottom={{
@@ -116,6 +118,7 @@ export default class StakingGraph extends Component {
                         stroke: "#b0413e",
                         strokeWidth: 2
                     },
+                    legend: "← current requirement",
                     value: apiData.height
                 }]
                 }
