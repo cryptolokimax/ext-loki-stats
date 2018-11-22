@@ -99,13 +99,8 @@ export default class StakingGraph extends Component {
                     "tickRotation": 0,
                     "legend": "Staking Requirement",
                     "legendOffset": 0,
-                    "legendPosition": "middle"
                 }}
                 enableDots={false}
-                dotSize={10}
-                dotColor="inherit:darker(0.3)"
-                dotBorderWidth={2}
-                dotBorderColor="#ffffff"
                 enableDotLabel={true}
                 dotLabel="y"
                 dotLabelYOffset={-12}
@@ -122,6 +117,7 @@ export default class StakingGraph extends Component {
                     value: apiData.height
                 }]
                 }
+                isInteractive={true}
             />
             <div className='json-w-wrapper' style={{ position: 'absolute', top: '0px', left: '0px'}}>
                 <div className='json-w-center'>
