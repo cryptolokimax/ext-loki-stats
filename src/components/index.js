@@ -4,6 +4,7 @@ import JsonStatus from './JsonStatus'
 import StakingGraph from './StakingGraph'
 import MedianBlockSizeGraph from './MedianBlockSizeGraph'
 import BlockchainSizeGraph from './BlockchainSizeGraph'
+import BlockTimeHistogram from './BlockTimeHistogram'
 
 export default {
     JsonKeys,
@@ -11,5 +12,6 @@ export default {
     JsonStatus,
     StakingGraph,
     MedianBlockSizeGraph,
-    BlockchainSizeGraph
+    BlockchainSizeGraph,
+    BlockTimeHistogram
 }

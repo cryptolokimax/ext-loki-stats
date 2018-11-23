@@ -14,6 +14,12 @@ const innerCss = `
                     flex-wrap: wrap;
                     justify-content: center;
                 }
+                .json-w-top-label {
+                    width: 100%;
+                    text-align: center;
+                    position: relative;
+                    top: -3vmin;
+                }
                 .json-w-big-text {
                     font-size: 9vmin;
                     height: 7vmin;
