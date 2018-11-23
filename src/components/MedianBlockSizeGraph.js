@@ -40,7 +40,7 @@ export default class MedianBlockSizeGraph extends Component {
                 data={[{id: "Median block size", data: graphData}]}
                 animate
                 xScale={{type: 'time',format: '%Y-%m-%d', precision: 'day'}}
-                yScale={{type: 'linear', stacked: true}}
+                yScale={{type: 'linear'}}
                 axisBottom={{format: '%d %b \'%y', "legend": "Date"}}
                 axisLeft={{
                     "legend": "Block size",
@@ -54,6 +54,7 @@ export default class MedianBlockSizeGraph extends Component {
             />
             <div className='json-w-wrapper' style={{ position: 'absolute', top: '0px', left: '0px'}}>
                 <div className='json-w-center'>
+                    <div className='json-w-top-label'>24 hrs. average:</div>
                     <div className='json-w-big-text'>{numeral(graphData.slice(-1)[0].y).format('0,0')}</div>
                 </div>
             </div>
