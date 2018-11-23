@@ -5,6 +5,7 @@ import StakingGraph from './StakingGraph'
 import MedianBlockSizeGraph from './MedianBlockSizeGraph'
 import BlockchainSizeGraph from './BlockchainSizeGraph'
 import BlockTimeHistogram from './BlockTimeHistogram'
+import HashrateGraph from './HashrateGraph'
 
 export default {
     JsonKeys,
@@ -13,5 +14,6 @@ export default {
     StakingGraph,
     MedianBlockSizeGraph,
     BlockchainSizeGraph,
-    BlockTimeHistogram
+    BlockTimeHistogram,
+    HashrateGraph
 }
