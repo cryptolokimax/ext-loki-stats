@@ -113,7 +113,7 @@ export default class StakingGraph extends Component {
                         stroke: "#b0413e",
                         strokeWidth: 2
                     },
-                    legend: "← current height",
+                    legend: `← height: ${numberWithThousands(apiData.height)}`,
                     value: apiData.height
                 }]
                 }

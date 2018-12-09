@@ -7,6 +7,7 @@ import BlockchainSizeGraph from './BlockchainSizeGraph'
 import BlockTimeHistogram from './BlockTimeHistogram'
 import HashrateGraph from './HashrateGraph'
 import HashrateGraph24 from './HashrateGraph24'
+import NumOfSnGraph from './NumOfSnGraph'
 
 export default {
     JsonKeys,
@@ -18,4 +19,5 @@ export default {
     BlockTimeHistogram,
     HashrateGraph,
     HashrateGraph24,
+    NumOfSnGraph
 }
