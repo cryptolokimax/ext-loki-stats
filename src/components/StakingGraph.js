@@ -113,7 +113,7 @@ export default class StakingGraph extends Component {
                         stroke: "#b0413e",
                         strokeWidth: 2
                     },
-                    legend: "← current requirement",
+                    legend: "← current height",
                     value: apiData.height
                 }]
                 }
