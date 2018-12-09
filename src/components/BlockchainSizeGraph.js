@@ -46,7 +46,7 @@ export default class BlockchainSizeGraph extends Component {
                     "legend": "Blockchain size, Gb",
                 }}
                 enableDots={false}
-                curve="basis"
+                curve="linear"
                 tooltip={(tooltip) => (<div><div>{tooltip.data[0].data.x.toLocaleDateString("en-US", {  year: 'numeric', month: 'long', day: 'numeric' })}</div><div>{numeral(tooltip.data[0].data.y).format('0,0.000')} GB</div></div>) }
             />
             <div className='json-w-wrapper' style={{ position: 'absolute', top: '0px', left: '0px'}}>

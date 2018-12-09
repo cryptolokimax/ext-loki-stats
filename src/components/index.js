@@ -6,6 +6,7 @@ import MedianBlockSizeGraph from './MedianBlockSizeGraph'
 import BlockchainSizeGraph from './BlockchainSizeGraph'
 import BlockTimeHistogram from './BlockTimeHistogram'
 import HashrateGraph from './HashrateGraph'
+import HashrateGraph24 from './HashrateGraph24'
 
 export default {
     JsonKeys,
@@ -15,5 +16,6 @@ export default {
     MedianBlockSizeGraph,
     BlockchainSizeGraph,
     BlockTimeHistogram,
-    HashrateGraph
+    HashrateGraph,
+    HashrateGraph24,
 }
