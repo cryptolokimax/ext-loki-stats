@@ -61,7 +61,7 @@ export default class BlockTimeHistogram extends Component {
                 axisBottom={{ tickRotation: -75 }}
                 axisLeft={{ legend: "Frequency, %" }}
                 enableLabel={false}
-                colorBy={tick => (apiData.averageBlockTime >= tick.data.classMin && apiData.averageBlockTime < tick.data.classMax) ? '#f4429b' : '#e8c1a0' }
+                colorBy={tick => (apiData.averageBlockTime >= tick.data.classMin && apiData.averageBlockTime < tick.data.classMax) ? '#ee9a83' : '#e8c1a0' }
                 tooltip={(tooltip) => (<div><div>{numeral(tooltip.data.percent).format('0,0.00')}%</div><div>{tooltip.data.class}</div></div>) }
             />
             <div className='json-w-wrapper' style={{ position: 'absolute', top: '0px', left: '0px'}}>
