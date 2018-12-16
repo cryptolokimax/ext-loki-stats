@@ -39,18 +39,17 @@ export default class NumOfSnGraph extends Component {
                 }}
                 data={[{id: "Num of Service Nodes", data: graphData}]}
                 animate
-                xScale={{type: 'time', precision: 'day'}}
-                yScale={{type: 'linear'}}
-                axisBottom={{format: '%d %b \'%y', "legend": "Date"}}
+                xScale={{type: 'time', precision: 'hour'}}
+                yScale={{type: 'linear', min: 'auto', max: 'auto', stacked: false}}
+                axisBottom={{format: '%d %b \'%y', "legend": "Date", tickRotation: -75}}
                 axisLeft={{
                     "legend": "SN count",
                 }}
                 enableDots={false}
-                
                 dotBorderWidth={1}
                 dotBorderColor="inherit:darker(0.3)"
-                curve="natural"
-                tooltip={(tooltip) => (<div><div>{tooltip.data[0].data.x.toLocaleDateString("en-US", {  year: 'numeric', month: 'long', day: 'numeric' })}</div><div>{numeral(tooltip.data[0].data.y).format('0,0')}</div></div>) }
+                curve="linear"
+                tooltip={(tooltip) => (<div><div>{tooltip.data[0].data.x.toLocaleDateString("en-US", {  year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', timeZoneName: 'short' })}</div><div>{numeral(tooltip.data[0].data.y).format('0,0')}</div></div>) }
             />
             <div className='json-w-wrapper' style={{ position: 'absolute', top: '0px', left: '0px'}}>
                 <div className='json-w-center'>
