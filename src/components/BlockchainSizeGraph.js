@@ -39,14 +39,14 @@ export default class BlockchainSizeGraph extends Component {
                 }}
                 data={[{id: "Median block size", data: graphData}]}
                 animate
-                xScale={{type: 'time', format: '%Y-%m-%d', precision: 'day'}}
+                xScale={{type: 'time', format: '%Y-%m-%d', precision: 'hour'}}
                 yScale={{type: 'linear', stacked: false, min: "auto", max: "auto"}}
                 axisBottom={{format: '%d %b', "legend": "Date"}}
                 axisLeft={{
                     "legend": "Blockchain size, Gb",
                 }}
                 enableDots={false}
-                curve="linear"
+                curve="basis"
                 tooltip={(tooltip) => (<div><div>{tooltip.data[0].data.x.toLocaleDateString("en-US", {  year: 'numeric', month: 'long', day: 'numeric' })}</div><div>{numeral(tooltip.data[0].data.y).format('0,0.000')} GB</div></div>) }
             />
             <div className='json-w-wrapper' style={{ position: 'absolute', top: '0px', left: '0px'}}>
