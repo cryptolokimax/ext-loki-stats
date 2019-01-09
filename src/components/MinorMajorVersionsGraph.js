@@ -44,7 +44,7 @@ export default class MinorMajorVersionsGraph extends Component {
                 yScale={{type: 'linear', min: 'auto', max: 'auto'}}
                 axisBottom={{format: '%d %b \'%y', "legend": "Date", tickRotation: -75}}
                 axisLeft={{
-                    "legend": "Hashrate, MH/sec",
+                    "legend": "Version number",
                 }}
                 enableDots={false}
                 

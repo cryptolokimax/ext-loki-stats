@@ -7,7 +7,7 @@ import computeRequestId from '../lib/computeRequestId'
 import innerCss from './css/inner';
 
 
-export default class BlockchainSizeGraph extends Component {
+export default class AlternateChainCountGraph extends Component {
     static propTypes = {
         title: PropTypes.string,
         url: PropTypes.string.isRequired,
@@ -26,7 +26,7 @@ export default class BlockchainSizeGraph extends Component {
     render() {
         const { title, url, apiData, apiError } = this.props
                 
-        const graphData = (apiData && !apiError) ? apiData.blockchainSizeHistory.map(row => ({x: new Date(row[0]).toISOString().slice(0,10), y: (row[1] / (1000000000))})).filter(n => n.y > 0) : [];
+        const graphData = (apiData && !apiError) ? apiData.alternateChainCount.map(row => ({x: new Date(row[0]).toISOString().slice(0,10), y: (row[1])})).filter(n => n.y > 0) : [];
 
         const body = (apiData && !apiError) ? (
         <div style={{ position: 'relative', width: '100%', height: '100%'}}>
@@ -39,19 +39,20 @@ export default class BlockchainSizeGraph extends Component {
                 }}
                 data={[{id: "Median block size", data: graphData}]}
                 animate
-                xScale={{type: 'time', format: '%Y-%m-%d', precision: 'day'}}
-                yScale={{type: 'linear', stacked: false, min: "auto", max: "auto"}}
+                xScale={{type: 'time', format: '%Y-%m-%d', precision: 'hour'}}
+                yScale={{type: 'linear', stacked: false, min: 0, max: "auto"}}
                 axisBottom={{format: '%d %b', "legend": "Date", tickRotation: -75}}
                 axisLeft={{
-                    "legend": "Blockchain size, Gb",
+                    "legend": "Alternate chain blocks num",
                 }}
                 enableDots={false}
-                curve="basis"
-                tooltip={(tooltip) => (<div><div>{tooltip.data[0].data.x.toLocaleDateString("en-US", {  year: 'numeric', month: 'long', day: 'numeric' })}</div><div>{numeral(tooltip.data[0].data.y).format('0,0.000')} GB</div></div>) }
+                curve="linear"
+                tooltip={(tooltip) => (<div><div>{tooltip.data[0].data.x.toLocaleDateString("en-US", {  year: 'numeric', month: 'long', day: 'numeric' })}</div><div>{tooltip.data[0].data.y}</div></div>) }
             />
             <div className='json-w-wrapper' style={{ position: 'absolute', top: '0px', left: '0px'}}>
                 <div className='json-w-center'>
-                    <div className='json-w-big-text'>{numeral(graphData.slice(-1)[0].y).format('0,0.000')} GB</div>
+                    <div className='json-w-top-label'>24 hrs. count:</div>
+                    <div className='json-w-big-text'>{apiData.last24hrsAlternateChain}</div>
                 </div>
             </div>
         </div>) : (<WidgetLoader />);
