@@ -1,6 +1,6 @@
 {
   "name": "ext-loki-stats",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A Mozaïk extension widgets for Loki statistics",
   "repository": {
     "type": "git",
@@ -29,13 +29,15 @@
     "npm": ">=3.0.0"
   },
   "dependencies": {
-    "@nivo/line": "^0.51.0",
     "@nivo/bar": "^0.51.5",
+    "@nivo/line": "^0.51.0",
     "chalk": "^2.0.1",
     "convict": "^4.0.0",
     "lodash": "^4.17.4",
     "lodash-es": "^4.17.4",
+    "moment": "^2.24.0",
     "numeral": "^2.0.6",
+    "pigeon-maps": "^0.11.10",
     "prop-types": "^15.5.10"
   },
   "devDependencies": {
@@ -57,8 +59,8 @@
     "lint-staged": "^7.2.0",
     "nock": "^9.0.14",
     "prettier": "^1.5.3",
-    "react": "^16.6.0",
-    "react-dom": "^16.6.0",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2",
     "react-test-renderer": "^16.6.0",
     "styled-components": "^2.1.1"
   },

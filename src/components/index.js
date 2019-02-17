@@ -10,6 +10,7 @@ import HashrateGraph24 from './HashrateGraph24'
 import NumOfSnGraph from './NumOfSnGraph'
 import MinorMajorVersionsGraph from './MinorMajorVersionsGraph'
 import AlternateChainCountGraph from './AlternateChainCountGraph'
+import NodesDistribution from './NodesDistribution'
 
 export default {
     JsonKeys,
@@ -23,5 +24,6 @@ export default {
     HashrateGraph24,
     NumOfSnGraph,
     MinorMajorVersionsGraph,
-    AlternateChainCountGraph
+    AlternateChainCountGraph,
+    NodesDistribution
 }
