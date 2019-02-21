@@ -22,7 +22,7 @@ export default class NodesDistribution extends Component {
         title: PropTypes.string,
         url: PropTypes.string.isRequired,
         headers: PropTypes.object,
-        apiData: PropTypes.object,
+        apiData: PropTypes.array,
         apiError: PropTypes.object,
     }
 
@@ -39,7 +39,7 @@ export default class NodesDistribution extends Component {
 
         const body = (apiData && !apiError) ? (
         <div style={{ position: 'relative', width: '100%', height: '100%'}}>
-            <Map defaultCenter={[20.674, 12.403]} defaultZoom={2.5}>
+            <Map defaultCenter={[20.674, 12.403]} defaultZoom={2.3}>
                 {
                     apiData.map((node, index) => (
                     <Marker key={index} anchor={[node.location.latitude, node.location.longitude]}>

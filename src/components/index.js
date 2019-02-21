@@ -11,6 +11,7 @@ import NumOfSnGraph from './NumOfSnGraph'
 import MinorMajorVersionsGraph from './MinorMajorVersionsGraph'
 import AlternateChainCountGraph from './AlternateChainCountGraph'
 import NodesDistribution from './NodesDistribution'
+import NodesDistributionCountries from './NodesDistributionCountries';
 
 export default {
     JsonKeys,
@@ -25,5 +26,6 @@ export default {
     NumOfSnGraph,
     MinorMajorVersionsGraph,
     AlternateChainCountGraph,
-    NodesDistribution
+    NodesDistribution,
+    NodesDistributionCountries
 }
