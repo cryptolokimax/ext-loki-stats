@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { TrapApiError, Widget, WidgetHeader, WidgetBody, WidgetLoader } from '@mozaik/ui'
 import numeral from 'numeral';
-import { ResponsiveLine } from '@nivo/line'
+import { ResponsivePie } from '@nivo/pie'
 import computeRequestId from '../lib/computeRequestId'
 import innerCss from './css/inner';
 
@@ -25,37 +25,39 @@ export default class MinorMajorVersionsGraph extends Component {
 
     render() {
         const { title, url, apiData, apiError } = this.props
-                
-        const graphDataMajor = (apiData && !apiError) ? apiData.versions.major.map(row => ({x: new Date(row[0]).toISOString().slice(0,10), y: row[1]})) : [];
-        const graphDataMinor = (apiData && !apiError) ? apiData.versions.minor.map(row => ({x: new Date(row[0]).toISOString().slice(0,10), y: row[1]})) : [];
+        
+        const majorMinorVersionShare24h = (apiData && !apiError) ?  apiData.majorMinorVersionShare24h : {};
+
+        const totalBlocks = Object.keys(majorMinorVersionShare24h.major).reduce((sum, key) => (majorMinorVersionShare24h.major[key] + sum), 0);
+
+        const minorShares = Object.keys(majorMinorVersionShare24h.minor).map(key => ({id: `v.${key}`, label: `Version ${key}`, value: parseFloat(majorMinorVersionShare24h.minor[key] / totalBlocks * 100).toFixed(2)}));
+
+        const majorShares = Object.keys(majorMinorVersionShare24h.major).map(key => ({id: `v.${key}`, label: `Version ${key}`, value: parseFloat(majorMinorVersionShare24h.major[key] / totalBlocks * 100).toFixed(2)}));
 
         const body = (apiData && !apiError) ? (
-        <div style={{ position: 'relative', width: '100%', height: '100%'}}>
-            <ResponsiveLine
-                margin={{
-                    top: 20,
-                    right: 20,
-                    bottom: 60,
-                    left: 80
-                }}
-                data={[{id: "Major", data: graphDataMajor}, {id: "Minor", data: graphDataMinor}]}
-                animate
-                xScale={{type: 'time',format: '%Y-%m-%d' }}
-                yScale={{type: 'linear', min: 'auto', max: 'auto'}}
-                axisBottom={{format: '%d %b \'%y', "legend": "Date", tickRotation: -75}}
-                axisLeft={{
-                    "legend": "Version number",
-                }}
-                enableDots={false}
-                
-                dotBorderWidth={1}
-                dotBorderColor="inherit:darker(0.3)"
-                curve="linear"
-                tooltip={(tooltip) => (<div>
-                        <div>{tooltip.data[0].data.x.toLocaleDateString("en-US", {  year: 'numeric', month: 'long', day: 'numeric' })}</div><div>Major Version: {numeral(tooltip.data[0].data.y).format('0,0.00')}</div>
-                        <div>Minor Version: {numeral(tooltip.data[1].data.y).format('0,0.00')}</div>
-                    </div>) }
-            />
+        <div style={{ position: 'relative', width: '100%', height: '100%', display: 'flex', flexDirection: 'row'}}>
+            <div style={{  width: '50%', height: '100%' }}>
+                <span>Minor</span>
+                <ResponsivePie
+                    margin={{
+                        bottom: 30,
+                    }}
+                    data={minorShares}
+                    innerRadius={0.5}
+                    sliceLabel={ v => `${v.value}%` }
+                />
+            </div>
+            <div style={{  width: '50%', height: '100%' }}>
+                <span>Major</span>
+                <ResponsivePie
+                    margin={{
+                        bottom: 30,
+                    }}
+                    data={majorShares}
+                    innerRadius={0.5}
+                    sliceLabel={ v => `${v.value}%` }
+                />
+            </div>
         </div>) : (<WidgetLoader />);
         
         return (
