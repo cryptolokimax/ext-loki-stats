@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { render } from 'react-dom'
 import PropTypes from 'prop-types'
 import _ from 'lodash'
+import moment from 'moment';
 import { TrapApiError, Widget, WidgetHeader, WidgetBody, WidgetLoader } from '@mozaik/ui'
 import { ResponsiveLine } from '@nivo/line'
 import computeRequestId from '../lib/computeRequestId'
@@ -26,7 +27,9 @@ export default class StakingGraph extends Component {
     render() {
         const { title, url, apiData, apiError } = this.props
 
-        const calcRequiredForStake = h => Number(
+        const calcRequiredForStake = h => (h >= 235987) ? Number(
+            15000 + 24721*Math.pow(2, ((101250-h)/129600.))
+          ): Number(
             Math.max(10000 + 35000*Math.pow(2, ((101250-h)/129600.)), Math.min(5*h/2592 + 8000, 15000))
           );
         const blocksPerYear = 263004;
@@ -34,7 +37,7 @@ export default class StakingGraph extends Component {
         const periodToCalcDays = 365*3;
         const periodToCalcBlocks = periodToCalcDays * blocksPerDay;
         const startHeight = 101250;
-        const stepsToSkipOnGraphPerBlock = 100; // the bigger the less accurate, the smaller the most cpu
+        const stepsToSkipOnGraphPerBlock = 10; // the bigger the less accurate, the smaller the most cpu
         
         const numberWithThousands = (x) => {
             return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -117,6 +120,8 @@ export default class StakingGraph extends Component {
                     value: apiData.height
                 }]
                 }
+                // 
+                tooltip={(tooltip) => (<div><div>Height: {numberWithThousands(tooltip.data[0].data.x)}</div><div>Date: {moment('2018-05-03').add(tooltip.data[0].data.x * 120, 's').format("MMMM Do YYYY")}</div><div>Staking requirement: {numberWithThousands(parseFloat(tooltip.data[0].data.y).toFixed(2))}</div></div>)}
                 isInteractive={true}
             />
             <div className='json-w-wrapper' style={{ position: 'absolute', top: '0px', left: '0px'}}>
