@@ -36,22 +36,28 @@ export default class MinorMajorVersionsGraph extends Component {
 
         const body = (apiData && !apiError) ? (
         <div style={{ position: 'relative', width: '100%', height: '100%', display: 'flex', flexDirection: 'row'}}>
-            <div style={{  width: '50%', height: '100%' }}>
+            <div style={{  width: '50%', height: 'calc(100% - 60px)' }}>
                 <span>Minor</span>
                 <ResponsivePie
                     margin={{
-                        bottom: 30,
+                        top: 20,
+                        bottom: 20,
+                        left: 20,
+                        right: 20,
                     }}
                     data={minorShares}
                     innerRadius={0.5}
                     sliceLabel={ v => `${v.value}%` }
                 />
             </div>
-            <div style={{  width: '50%', height: '100%' }}>
+            <div style={{  width: '50%', height: 'calc(100% - 60px)' }}>
                 <span>Major</span>
                 <ResponsivePie
                     margin={{
-                        bottom: 30,
+                        top: 20,
+                        bottom: 20,
+                        left: 20,
+                        right: 20,
                     }}
                     data={majorShares}
                     innerRadius={0.5}
