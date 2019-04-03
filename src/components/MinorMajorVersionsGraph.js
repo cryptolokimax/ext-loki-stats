@@ -26,7 +26,7 @@ export default class MinorMajorVersionsGraph extends Component {
     render() {
         const { title, url, apiData, apiError } = this.props
         
-        const majorMinorVersionShare24h = (apiData && !apiError) ?  apiData.majorMinorVersionShare24h : {};
+        const majorMinorVersionShare24h = (apiData && !apiError) ?  apiData.majorMinorVersionShare24h : {major: {}, minor: {}};
 
         const totalBlocks = Object.keys(majorMinorVersionShare24h.major).reduce((sum, key) => (majorMinorVersionShare24h.major[key] + sum), 0);
 

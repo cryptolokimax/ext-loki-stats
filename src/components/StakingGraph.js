@@ -26,9 +26,9 @@ export default class StakingGraph extends Component {
 
     render() {
         const { title, url, apiData, apiError } = this.props
-
-        const calcRequiredForStake = h => (h >= 235987) ? Number(
-            15000 + 24721*Math.pow(2, ((101250-h)/129600.))
+        
+        const calcRequiredForStake = h => (h >= 234767) ? Number(
+            15000 + 25007*Math.pow(2, ((101250-h)/129600.))
           ): Number(
             Math.max(10000 + 35000*Math.pow(2, ((101250-h)/129600.)), Math.min(5*h/2592 + 8000, 15000))
           );

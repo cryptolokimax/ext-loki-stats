@@ -41,7 +41,7 @@ export default class BlockchainSizeGraph extends Component {
                 animate
                 xScale={{type: 'time', format: '%Y-%m-%d', precision: 'day'}}
                 yScale={{type: 'linear', stacked: false, min: "auto", max: "auto"}}
-                axisBottom={{format: '%d %b', "legend": "Date", tickRotation: -75}}
+                axisBottom={{format: '%d %b', "legend": "Date", tickRotation: -25}}
                 axisLeft={{
                     "legend": "Blockchain size, Gb",
                 }}

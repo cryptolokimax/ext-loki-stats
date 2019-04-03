@@ -41,12 +41,11 @@ export default class HashrateGraph extends Component {
                 animate
                 xScale={{type: 'time',format: '%Y-%m-%d', precision: 'day'}}
                 yScale={{type: 'linear'}}
-                axisBottom={{format: '%d %b \'%y', "legend": "Date"}}
+                axisBottom={{format: '%d %b \'%y', "legend": "Date", tickRotation: -45}}
                 axisLeft={{
                     "legend": "Hashrate, MH/sec",
                 }}
                 enableDots={false}
-                
                 dotBorderWidth={1}
                 dotBorderColor="inherit:darker(0.3)"
                 curve="natural"
