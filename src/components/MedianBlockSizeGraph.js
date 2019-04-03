@@ -41,7 +41,7 @@ export default class MedianBlockSizeGraph extends Component {
                 animate
                 xScale={{type: 'time',format: '%Y-%m-%d', precision: 'day'}}
                 yScale={{type: 'linear'}}
-                axisBottom={{format: '%d %b \'%y', "legend": "Date"}}
+                axisBottom={{format: '%d %b \'%y', "legend": "Date", tickRotation: -25}}
                 axisLeft={{
                     "legend": "Block size",
                 }}

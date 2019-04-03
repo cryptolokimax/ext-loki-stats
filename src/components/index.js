@@ -12,6 +12,7 @@ import MinorMajorVersionsGraph from './MinorMajorVersionsGraph'
 import AlternateChainCountGraph from './AlternateChainCountGraph'
 import NodesDistribution from './NodesDistribution'
 import NodesDistributionCountries from './NodesDistributionCountries';
+import MiningPools from './MiningPools';
 
 export default {
     JsonKeys,
@@ -27,5 +28,6 @@ export default {
     MinorMajorVersionsGraph,
     AlternateChainCountGraph,
     NodesDistribution,
-    NodesDistributionCountries
+    NodesDistributionCountries,
+    MiningPools
 }
