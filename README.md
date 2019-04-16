@@ -1,6 +1,6 @@
-# Mozaïk remote json widgets
+# Mozaïk remote widgets
 
-This is an extension for Mozaïk dashboard, that contains widgets related to Loki blockchain
+This is an extension for Mozaïk dashboard, that contains widgets related to Loki blockchain dashboard
 
 ## Widgets
 
@@ -14,19 +14,26 @@ It contains the following widgets:
 
 Loki dashboard related widgets:
 
-- StakingGraph,
-- MedianBlockSizeGraph,
-- BlockchainSizeGraph,
-- BlockTimeHistogram,
-- HashrateGraph,
-- HashrateGraph24,
-- NumOfSnGraph,
-- MinorMajorVersionsGraph,
+- StakingGraph
+- MedianBlockSizeGraph
+- BlockchainSizeGraph
+- BlockTimeHistogram
+- HashrateGraph
+- HashrateGraph24
+- NumOfSnGraph
+- MinorMajorVersionsGraph
 - AlternateChainCountGraph
+- NodesDistribution
+- NodesDistributionCountries
+- MiningPools
+- SnVersionGraph
 
 ## Usage
 
 ### Development
 
+Use `npm run build:es:watch` for hot rebuilding on development
+
 ### Production
 
+Build using `npm run build:es` for production
