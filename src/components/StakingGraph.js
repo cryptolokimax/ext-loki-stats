@@ -6,6 +6,7 @@ import moment from 'moment';
 import { TrapApiError, Widget, WidgetHeader, WidgetBody, WidgetLoader } from '@mozaik/ui'
 import { ResponsiveLine } from '@nivo/line'
 import computeRequestId from '../lib/computeRequestId'
+import graphTheme from '../lib/graphTheme'
  
 
 export default class StakingGraph extends Component {
@@ -52,9 +53,13 @@ export default class StakingGraph extends Component {
             };
         });
         
+        const theme = graphTheme(this.props);
+
         const body = (apiData && !apiError) ? (
         <div style={{ position: 'relative', width: '100%', height: '100%'}}>
             <ResponsiveLine
+                colors="accent"
+                theme={theme}
                 data={[
                     {
                     "id": "requirement",
@@ -117,6 +122,10 @@ export default class StakingGraph extends Component {
                         strokeWidth: 2
                     },
                     legend: `← height: ${numberWithThousands(apiData.height)}`,
+                    
+                    textStyle: {
+                        fill: theme.legends.text.fill
+                    },
                     value: apiData.height
                 }]
                 }

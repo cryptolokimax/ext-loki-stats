@@ -14,6 +14,7 @@ import NodesDistribution from './NodesDistribution'
 import NodesDistributionCountries from './NodesDistributionCountries';
 import MiningPools from './MiningPools';
 import SnVersionGraph from './SnVersionGraph';
+import SNStateChanges from './SNStateChanges';
 
 export default {
     JsonKeys,
@@ -31,5 +32,6 @@ export default {
     NodesDistribution,
     NodesDistributionCountries,
     MiningPools,
-    SnVersionGraph
+    SnVersionGraph,
+    SNStateChanges
 }

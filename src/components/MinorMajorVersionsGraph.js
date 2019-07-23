@@ -4,6 +4,7 @@ import { TrapApiError, Widget, WidgetHeader, WidgetBody, WidgetLoader } from '@m
 import numeral from 'numeral';
 import { ResponsivePie } from '@nivo/pie'
 import computeRequestId from '../lib/computeRequestId'
+import graphTheme from '../lib/graphTheme'
 import innerCss from './css/inner';
 
 
@@ -39,6 +40,8 @@ export default class MinorMajorVersionsGraph extends Component {
             <div style={{  width: '50%', height: 'calc(100% - 60px)' }}>
                 <span>Minor</span>
                 <ResponsivePie
+                    colors="accent"
+                    theme={graphTheme(this.props)}
                     margin={{
                         top: 20,
                         bottom: 20,
@@ -53,6 +56,8 @@ export default class MinorMajorVersionsGraph extends Component {
             <div style={{  width: '50%', height: 'calc(100% - 60px)' }}>
                 <span>Major</span>
                 <ResponsivePie
+                    colors="accent"
+                    theme={graphTheme(this.props)}
                     margin={{
                         top: 20,
                         bottom: 20,

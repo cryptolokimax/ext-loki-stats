@@ -4,6 +4,7 @@ import { TrapApiError, Widget, WidgetHeader, WidgetBody, WidgetLoader } from '@m
 import numeral from 'numeral';
 import { ResponsiveLine } from '@nivo/line'
 import computeRequestId from '../lib/computeRequestId'
+import graphTheme from '../lib/graphTheme'
 import innerCss from './css/inner';
 
 
@@ -31,6 +32,8 @@ export default class BlockchainSizeGraph extends Component {
         const body = (apiData && !apiError) ? (
         <div style={{ position: 'relative', width: '100%', height: '100%'}}>
             <ResponsiveLine
+                colors="accent"
+                theme={graphTheme(this.props)}
                 margin={{
                     top: 20,
                     right: 20,

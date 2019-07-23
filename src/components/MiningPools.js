@@ -5,6 +5,7 @@ import numeral from 'numeral';
 import _ from 'lodash'
 import { ResponsiveLine } from '@nivo/line'
 import computeRequestId from '../lib/computeRequestId'
+import graphTheme from '../lib/graphTheme'
 import innerCss from './css/inner';
 
 
@@ -33,9 +34,12 @@ export default class MiningPools extends Component {
             )
         : [];
         
+        const theme = graphTheme(this.props);
         const body = (apiData && !apiError) ? (
         <div style={{ position: 'relative', width: '100%', height: '100%'}}>
             <ResponsiveLine
+                colors="accent"
+                theme={theme}
                 margin={{
                     top: 20,
                     right: 120,
@@ -90,7 +94,8 @@ export default class MiningPools extends Component {
                                     "itemOpacity": 1
                                 }
                             }
-                        ]
+                        ],
+                        itemTextColor: theme.legends.text.fill,
                     }
                 ]}
                 tooltip={(tooltip) => (

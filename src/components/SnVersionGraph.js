@@ -4,6 +4,7 @@ import { TrapApiError, Widget, WidgetHeader, WidgetBody, WidgetLoader } from '@m
 import numeral from 'numeral';
 import { ResponsivePie } from '@nivo/pie'
 import computeRequestId from '../lib/computeRequestId'
+import graphTheme from '../lib/graphTheme'
 import innerCss from './css/inner';
 
 
@@ -34,6 +35,8 @@ export default class SnVersionGraph extends Component {
         <div style={{ position: 'relative', width: '100%', height: '100%', display: 'flex', flexDirection: 'row'}}>
  
                 <ResponsivePie
+                    colors="accent"
+                    theme={graphTheme(this.props)}
                     margin={{
                         top: 20,
                         bottom: 20,

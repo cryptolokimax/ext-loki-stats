@@ -5,6 +5,7 @@ import numeral from 'numeral';
 import { ResponsiveBar } from '@nivo/bar'
 import _ from 'lodash'
 import computeRequestId from '../lib/computeRequestId'
+import graphTheme from '../lib/graphTheme'
 import innerCss from './css/inner';
 
 
@@ -44,6 +45,8 @@ export default class NodesDistributionCountries extends Component {
         const body = (apiData && !apiError) ? (
         <div style={{ position: 'relative', width: '100%', height: '100%'}}>
             <ResponsiveBar
+                colors="accent"
+                theme={graphTheme(this.props)}
                 margin={{
                     top: 20,
                     right: 20,
