@@ -29,9 +29,9 @@
     "npm": ">=3.0.0"
   },
   "dependencies": {
-    "@nivo/bar": "^0.59.2",
-    "@nivo/line": "^0.59.3",
-    "@nivo/pie": "^0.59.1",
+    "@nivo/bar": "^0.53.1",
+    "@nivo/line": "^0.53.1",
+    "@nivo/pie": "^0.53.0",
     "chalk": "^2.0.1",
     "convict": "^4.0.0",
     "lodash": "^4.17.4",
@@ -60,14 +60,14 @@
     "lint-staged": "^7.2.0",
     "nock": "^9.0.14",
     "prettier": "^1.5.3",
-    "react": "^16.8.2",
-    "react-dom": "^16.8.2",
-    "react-test-renderer": "^16.6.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-test-renderer": "^16.8.6",
     "styled-components": "^2.1.1"
   },
   "peerDependencies": {
     "@mozaik/ui": "file:../mozaik-ui",
-    "react": "^16.4.0"
+    "react": "^16.8.6"
   },
   "scripts": {
     "lint": "eslint ./src/** ./test/**",
