@@ -9,7 +9,7 @@ const innerCss = `
                 top: -20px;
                 left: 10px;
                 width: 180px;
-                height: 70px;
+                height: 40px;
                 background-color: white;
                 border-radius: 2px;
                 box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
