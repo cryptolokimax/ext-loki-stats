@@ -63,17 +63,18 @@ export default class SNStateChanges extends Component {
                     top: 20,
                     right: 20,
                     bottom: 80,
-                    left: 80
+                    left: 120
                 }}
                 data={graphData}
                 indexBy="type"
+                colorBy="index"
                 layout="horizontal"
                 keys={[
                 'numOfNodes',
                 ]}
                 axisBottom={{ tickRotation: -75, legend: "Num of Nodes" }}
                 // axisLeft={{ legend: "Frequency, %" }}
-                enableLabel={false}
+                enableLabel={true}
                 // colorBy={tick => (apiData.averageBlockTime >= tick.data.classMin && apiData.averageBlockTime < tick.data.classMax) ? '#ee9a83' : '#e8c1a0' }
                 tooltip={(tooltip) => (<div><div>{tooltip.data.type}</div><div>{tooltip.data.numOfNodes} nodes</div></div>) }
             />

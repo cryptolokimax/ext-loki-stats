@@ -5,6 +5,7 @@ import Map from 'pigeon-maps'
 import MapMarker from './MapMarker'
 import computeRequestId from '../lib/computeRequestId'
 import innerCss from './css/nodes-distribution';
+import graphTheme from '../lib/graphTheme'
 
 const Marker = ({ left, top, style, children }) => (
     <div style={{
@@ -36,6 +37,7 @@ export default class NodesDistribution extends Component {
     render() {
         const { title, url, apiData, apiError } = this.props
                 
+        const theme = graphTheme(this.props);
 
         const body = (apiData && !apiError) ? (
         <div style={{ position: 'relative', width: '100%', height: '100%'}}>
@@ -43,7 +45,7 @@ export default class NodesDistribution extends Component {
                 {
                     apiData.map((node, index) => (
                     <Marker key={index} anchor={[node.location.latitude, node.location.longitude]}>
-                        <MapMarker ip={node.ip} lastProofSecondsAgo={node.lastProofSecondsAgo}/>
+                        <MapMarker theme={theme} ip={node.ip} lastProofSecondsAgo={node.lastProofSecondsAgo}/>
                     </Marker>
                     ))
                 }
