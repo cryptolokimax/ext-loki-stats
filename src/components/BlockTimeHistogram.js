@@ -27,7 +27,7 @@ export default class BlockTimeHistogram extends Component {
     render() {
         const { title, url, apiData, apiError } = this.props
                 
-        const graphData = (apiData && !apiError) ? apiData.blockTimeHistogram.map(
+        const graphData = (apiData && apiData.blockTimeHistogram && !apiError) ? apiData.blockTimeHistogram.map(
             row => ({
                 class: `${numeral(row.classMin).format('0,0')}-${numeral(row.classMax).format('0,0')}s`,
                 percent: row.percent,
@@ -35,17 +35,17 @@ export default class BlockTimeHistogram extends Component {
                 classMax: row.classMax
             })) : [];
 
-        const calcRestPerc = (apiData && !apiError) ? 100 -  apiData.blockTimeHistogram.reduce((sum, current) => (sum + current.percent), 0) : 0;
+        const calcRestPerc = (apiData && apiData.blockTimeHistogram && !apiError) ? 100 -  apiData.blockTimeHistogram.reduce((sum, current) => (sum + current.percent), 0) : 0;
 
         // last bar
-        if (apiData && !apiError) graphData.push({
+        if (apiData && apiData.blockTimeHistogram && !apiError) graphData.push({
             class: `> ${apiData.blockTimeHistogram.slice(-1)[0].classMax}s`,
             percent: calcRestPerc,
             classMin: apiData.blockTimeHistogram.slice(-1)[0].classMax,
             classMax: Infinity,
         })
 
-        const body = (apiData && !apiError) ? (
+        const body = (apiData && apiData.blockTimeHistogram && !apiError) ? (
         <div style={{ position: 'relative', width: '100%', height: '100%'}}>
             <ResponsiveBar
                 colors="accent"
