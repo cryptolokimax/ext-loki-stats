@@ -27,7 +27,7 @@ export default class HashrateGraph24 extends Component {
     render() {
         const { title, url, apiData, apiError } = this.props
             
-        const graphData = (apiData && !apiError) ? apiData.hashrate24h.map(row => ({x: new Date(row[0]), y: row[1]})).filter(row => row.y !== 0) : [];
+        const graphData = (apiData && apiData.hashrate24h && !apiError) ? apiData.hashrate24h.map(row => ({x: new Date(row[0]), y: row[1]})).filter(row => row.y !== 0) : [];
 
         const avgHashrate = graphData.reduce((r, hashrate) => {
                 r.sum += +hashrate.y;

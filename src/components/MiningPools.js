@@ -28,7 +28,7 @@ export default class MiningPools extends Component {
     render() {
         const { title, url, apiData, apiError } = this.props
                 
-        const graphData = (apiData && !apiError) ? 
+        const graphData = (apiData && apiData.miningPoolStats && !apiError) ? 
             apiData.miningPoolStats.map(pool => (
                 {id: pool.id, data: pool.data.map(d => ({x: new Date(d.time), hashrate: d.hashrate, miners: parseFloat(d.miners).toFixed(0), y: d.percent ? parseFloat(d.percent).toFixed(2) : 0 }))})
             )

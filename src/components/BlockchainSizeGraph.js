@@ -27,9 +27,9 @@ export default class BlockchainSizeGraph extends Component {
     render() {
         const { title, url, apiData, apiError } = this.props
                 
-        const graphData = (apiData && !apiError) ? apiData.blockchainSizeHistory.map(row => ({x: new Date(row[0]).toISOString().slice(0,10), y: (row[1] / (1000000000))})).filter(n => n.y > 0) : [];
+        const graphData = (apiData && apiData.blockchainSizeHistory && !apiError) ? apiData.blockchainSizeHistory.map(row => ({x: new Date(row[0]).toISOString().slice(0,10), y: (row[1] / (1000000000))})).filter(n => n.y > 0) : [];
 
-        const body = (apiData && !apiError) ? (
+        const body = (apiData && apiData.blockchainSizeHistory && !apiError) ? (
         <div style={{ position: 'relative', width: '100%', height: '100%'}}>
             <ResponsiveLine
                 colors="accent"

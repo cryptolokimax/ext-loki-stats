@@ -27,9 +27,9 @@ export default class AlternateChainCountGraph extends Component {
     render() {
         const { title, url, apiData, apiError } = this.props
                 
-        const graphData = (apiData && !apiError) ? apiData.alternateChainCount.map(row => ({x: new Date(row[0]).toISOString().slice(0,10), y: (row[1])})).filter(n => n.y > 0) : [];
+        const graphData = (apiData && apiData.alternateChainCount && !apiError) ? apiData.alternateChainCount.map(row => ({x: new Date(row[0]).toISOString().slice(0,10), y: (row[1])})).filter(n => n.y > 0) : [];
 
-        const body = (apiData && !apiError) ? (
+        const body = (apiData && apiData.alternateChainCount && !apiError) ? (
         <div style={{ position: 'relative', width: '100%', height: '100%'}}>
             <ResponsiveLine
                 colors="accent"

@@ -55,7 +55,7 @@ export default class StakingGraph extends Component {
         
         const theme = graphTheme(this.props);
 
-        const body = (apiData && !apiError) ? (
+        const body = (apiData && apiData.height && !apiError) ? (
         <div style={{ position: 'relative', width: '100%', height: '100%'}}>
             <ResponsiveLine
                 colors="accent"

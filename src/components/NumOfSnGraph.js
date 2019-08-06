@@ -27,9 +27,9 @@ export default class NumOfSnGraph extends Component {
     render() {
         const { title, url, apiData, apiError } = this.props
                 
-        const graphData = (apiData && !apiError) ? apiData.serviceNodeCountHistory.map(row => ({x: new Date(row[0]), y: row[1]})) : [];
+        const graphData = (apiData && apiData.serviceNodeCountHistory && !apiError) ? apiData.serviceNodeCountHistory.map(row => ({x: new Date(row[0]), y: row[1]})) : [];
 
-        const body = (apiData && !apiError) ? (
+        const body = (apiData && apiData.serviceNodeCountHistory && !apiError) ? (
         <div style={{ position: 'relative', width: '100%', height: '100%'}}>
             <ResponsiveLine
                 colors="accent"

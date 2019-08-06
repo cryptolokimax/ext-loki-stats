@@ -27,9 +27,9 @@ export default class HashrateGraph extends Component {
     render() {
         const { title, url, apiData, apiError } = this.props
                 
-        const graphData = (apiData && !apiError) ? apiData.hashrateHistory.map(row => ({x: new Date(row[0]).toISOString().slice(0,10), y: row[1]})) : [];
+        const graphData = (apiData && apiData.hashrateHistory && !apiError) ? apiData.hashrateHistory.map(row => ({x: new Date(row[0]).toISOString().slice(0,10), y: row[1]})) : [];
 
-        const body = (apiData && !apiError) ? (
+        const body = (apiData && apiData.hashrateHistory && !apiError) ? (
         <div style={{ position: 'relative', width: '100%', height: '100%'}}>
             <ResponsiveLine
                 colors="accent"

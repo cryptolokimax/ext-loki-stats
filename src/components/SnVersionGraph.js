@@ -27,11 +27,11 @@ export default class SnVersionGraph extends Component {
     render() {
         const { title, url, apiData, apiError } = this.props
         
-        const versions = (apiData && !apiError) ?  apiData.versions : [];
+        const versions = (apiData && apiData.versions && !apiError) ?  apiData.versions : [];
 
         const versionData = versions.map(v => ({id: v.version, label: v.version, num: v.num, value: parseFloat(v.percentage).toFixed(2)}))
 
-        const body = (apiData && !apiError) ? (
+        const body = (apiData && apiData.versions && !apiError) ? (
         <div style={{ position: 'relative', width: '100%', height: '100%', display: 'flex', flexDirection: 'row'}}>
  
                 <ResponsivePie
