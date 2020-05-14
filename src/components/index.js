@@ -11,10 +11,11 @@ import NumOfSnGraph from './NumOfSnGraph'
 import MinorMajorVersionsGraph from './MinorMajorVersionsGraph'
 import AlternateChainCountGraph from './AlternateChainCountGraph'
 import NodesDistribution from './NodesDistribution'
-import NodesDistributionCountries from './NodesDistributionCountries';
-import MiningPools from './MiningPools';
-import SnVersionGraph from './SnVersionGraph';
-import SNStateChanges from './SNStateChanges';
+import NodesDistributionCountries from './NodesDistributionCountries'
+import MiningPools from './MiningPools'
+import SnVersionGraph from './SnVersionGraph'
+import SNStateChanges from './SNStateChanges'
+import EmissionGraph from './EmissionGraph'
 
 export default {
     JsonKeys,
@@ -33,5 +34,6 @@ export default {
     NodesDistributionCountries,
     MiningPools,
     SnVersionGraph,
-    SNStateChanges
+    SNStateChanges,
+    EmissionGraph,
 }
