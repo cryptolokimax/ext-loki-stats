@@ -12,6 +12,7 @@ import MinorMajorVersionsGraph from './MinorMajorVersionsGraph'
 import AlternateChainCountGraph from './AlternateChainCountGraph'
 import NodesDistribution from './NodesDistribution'
 import NodesDistributionCountries from './NodesDistributionCountries'
+import NodesDistributionAsn from './NodesDistributionAsn'
 import MiningPools from './MiningPools'
 import SnVersionGraph from './SnVersionGraph'
 import SNStateChanges from './SNStateChanges'
@@ -32,6 +33,7 @@ export default {
     AlternateChainCountGraph,
     NodesDistribution,
     NodesDistributionCountries,
+    NodesDistributionAsn,
     MiningPools,
     SnVersionGraph,
     SNStateChanges,

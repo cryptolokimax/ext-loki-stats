@@ -1,6 +1,6 @@
 {
   "name": "ext-loki-stats",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A Mozaïk extension widgets for Loki statistics",
   "repository": {
     "type": "git",

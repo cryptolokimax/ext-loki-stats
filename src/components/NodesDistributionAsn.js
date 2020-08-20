@@ -8,7 +8,7 @@ import computeRequestId from '../lib/computeRequestId'
 import graphTheme from '../lib/graphTheme'
 import innerCss from './css/inner'
 
-export default class NodesDistributionCountries extends Component {
+export default class NodesDistributionAsn extends Component {
     static propTypes = {
         title: PropTypes.string,
         url: PropTypes.string.isRequired,
@@ -30,13 +30,13 @@ export default class NodesDistributionCountries extends Component {
         let graphData = []
         if (apiData && !apiError) {
             apiData.forEach(node => {
-                if (!graphData[node.location.country]) graphData[node.location.country] = 1
-                else graphData[node.location.country]++
+                if (!graphData[node.location.asn]) graphData[node.location.asn] = 1
+                else graphData[node.location.asn]++
             })
             const numOfEls = apiData.length
             const graphDataObject = Object.keys(graphData).map(index => {
                 return {
-                    country: index === 'United Kingdom' ? 'UK' : index,
+                    asn: index,
                     numOfNodes: graphData[index],
                     percentage: (graphData[index] / numOfEls) * 100,
                 }
@@ -54,10 +54,10 @@ export default class NodesDistributionCountries extends Component {
                             top: 20,
                             right: 20,
                             bottom: 80,
-                            left: 80,
+                            left: 250,
                         }}
                         data={graphData}
-                        indexBy="country"
+                        indexBy="asn"
                         layout="horizontal"
                         keys={['percentage']}
                         axisBottom={{ tickRotation: -75, legend: '% of total' }}
@@ -66,7 +66,7 @@ export default class NodesDistributionCountries extends Component {
                         // colorBy={tick => (apiData.averageBlockTime >= tick.data.classMin && apiData.averageBlockTime < tick.data.classMax) ? '#ee9a83' : '#e8c1a0' }
                         tooltip={tooltip => (
                             <div>
-                                <div>{tooltip.data.country}</div>
+                                <div>{tooltip.data.asn}</div>
                                 <div>
                                     {tooltip.data.numOfNodes} nodes (
                                     {numeral(tooltip.data.percentage).format('0,0.00')}

@@ -25,6 +25,7 @@ Loki dashboard related widgets:
 - AlternateChainCountGraph
 - NodesDistribution
 - NodesDistributionCountries
+- NodesDistributionAsn
 - MiningPools
 - SnVersionGraph
 
