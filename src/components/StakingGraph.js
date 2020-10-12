@@ -76,9 +76,9 @@ export default class StakingGraph extends Component {
                     }
                 }
             } else if (h >= 234767) {
-                return Number(15000 + 25007 * 2 ** ((101250 - h) / 129600))
+                return Number(15000 + 25007 * Math.pow(2, (101250 - h) / 129600))
             } else {
-                return Number(10000 + 35000 * 2 ** ((101250 - h) / 129600.0))
+                return Number(10000 + 35000 * Math.pow(2, (101250 - h) / 129600))
             }
         }
 
