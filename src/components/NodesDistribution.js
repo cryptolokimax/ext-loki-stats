@@ -28,7 +28,7 @@ let tileHost =
     window.location.hostname &&
     window.location.hostname.includes('.loki')
         ? 'http://o8fzpgsnhxfkpu6ktjtiaeg61obu158rt19z6jfhpycn6a5hg3by.loki:8080'
-        : 'https://tiles.lokidashboard.com/'
+        : 'https://tiles.lokidashboard.com'
 
 function mapTilerProvider(x, y, z, dpr) {
     return `${tileHost}/styles/klokantech-basic/${z}/${x}/${y}${dpr >= 2 ? '@2x' : ''}.png`
