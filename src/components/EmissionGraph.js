@@ -56,7 +56,7 @@ export default class EmissionGraph extends Component {
                         yScale={{ type: 'linear', min: 'auto', max: 'auto', stacked: false }}
                         axisBottom={{ format: "%d %b '%y", legend: 'Date', tickRotation: -75 }}
                         axisLeft={{
-                            legend: 'LOKI',
+                            legend: 'OXEN',
                         }}
                         enableDots={false}
                         dotBorderWidth={1}
@@ -71,7 +71,7 @@ export default class EmissionGraph extends Component {
                                         day: 'numeric',
                                     })}
                                 </div>
-                                <div>{numeral(tooltip.data[0].data.y).format('0,0')} LOKI</div>
+                                <div>{numeral(tooltip.data[0].data.y).format('0,0')} OXEN</div>
                             </div>
                         )}
                     />
@@ -92,7 +92,7 @@ export default class EmissionGraph extends Component {
                                     style={{ fontSize: '3vmin', paddingTop: '0.5vmin' }}
                                 >
                                     {' '}
-                                    LOKI{' '}
+                                    OXEN{' '}
                                 </div>
                             </div>
                         </div>

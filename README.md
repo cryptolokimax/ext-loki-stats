@@ -1,6 +1,6 @@
 # Mozaïk remote widgets
 
-This is an extension for Mozaïk dashboard, that contains widgets related to Loki blockchain dashboard
+This is an extension for Mozaïk dashboard, that contains widgets related to Oxen blockchain dashboard
 
 ## Widgets
 
@@ -12,7 +12,7 @@ It contains the following widgets:
 - CustomJson
 - JsonStatus
 
-Loki dashboard related widgets:
+Oxen dashboard related widgets:
 
 - StakingGraph
 - MedianBlockSizeGraph

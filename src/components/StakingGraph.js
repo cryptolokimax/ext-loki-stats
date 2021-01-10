@@ -221,7 +221,7 @@ export default class StakingGraph extends Component {
                                 style={{ fontSize: '3vmin', paddingTop: '0.5vmin' }}
                             >
                                 {' '}
-                                LOKI{' '}
+                                OXEN{' '}
                             </div>
                         </div>
                     </div>
