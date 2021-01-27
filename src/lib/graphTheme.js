@@ -46,7 +46,7 @@ export default props => {
                 fill: axis.textColor,
             },
             textColor: axis.textColor,
-            fontSize: '12px'
+            fontSize: '12px',
         },
         textColor: axis.textColor,
         crosshair: {
@@ -55,6 +55,6 @@ export default props => {
                 strokeWidth: 1,
                 strokeOpacity: 0.35,
             },
-        }, 
+        },
     }
 }

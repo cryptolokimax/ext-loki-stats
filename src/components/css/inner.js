@@ -19,10 +19,12 @@ const innerCss = `
                     text-align: center;
                     position: relative;
                     top: -3vmin;
+                    font-family: 'Prompt';
                 }
                 .json-w-big-text {
                     font-size: 9vmin;
                     height: 7vmin;
+                    font-family: 'Prompt';
                 }
                 .json-w-right-text {
                     font-size: 2vmin;
@@ -33,6 +35,6 @@ const innerCss = `
                     position: absolute;
                     bottom: 1vmin;
                 }
-         `;
+         `
 
-export default innerCss;
+export default innerCss
