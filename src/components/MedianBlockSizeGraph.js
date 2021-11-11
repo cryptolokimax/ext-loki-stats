@@ -31,7 +31,7 @@ export default class MedianBlockSizeGraph extends Component {
         const { axis, grid, tooltip } = charts;
 
         const graphData =
-            apiData && !apiError
+            apiData && !apiError && apiData.medianBlockSizeHistory && apiData.medianBlockSizeHistory.length > 0
                 ? apiData.medianBlockSizeHistory.map(row => ({
                       x: new Date(row[0]).toISOString().slice(0, 10),
                       y: row[1],
