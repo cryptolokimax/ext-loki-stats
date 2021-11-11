@@ -82,7 +82,7 @@ export default class MedianBlockSizeGraph extends Component {
                         <div className="json-w-center">
                             <div className="json-w-top-label">24 hrs. average:</div>
                             <div className="json-w-big-text">
-                                {numeral(graphData.slice(-1)[0].y).format('0,0')}
+                                {graphData.length > 0 ? numeral(graphData.slice(-1)[0].y).format('0,0') : ''}
                             </div>
                         </div>
                     </div>
