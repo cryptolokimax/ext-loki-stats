@@ -33,7 +33,7 @@
     "@nivo/line": "^0.53.1",
     "@nivo/pie": "^0.53.0",
     "chalk": "^2.0.1",
-    "convict": "^4.0.0",
+    "convict": "^6.2.3",
     "lodash": "^4.17.4",
     "lodash-es": "^4.17.4",
     "moment": "^2.24.0",
